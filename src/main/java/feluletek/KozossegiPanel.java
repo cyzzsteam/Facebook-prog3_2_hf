@@ -8,6 +8,7 @@ package feluletek;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,8 @@ public class KozossegiPanel extends javax.swing.JPanel {
     private final int SZELESSEG=600;
     private final int MAGASSAG=450;
     
-    private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebook.jpg")).getImage();
+    //Képet beállítom és átméretezem a panel méretére, hogy kitöltse.
+    private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebook.jpg")).getImage().getScaledInstance(SZELESSEG, MAGASSAG, 1);
 
     /**
      * Creates new form KozossegiPanel
@@ -43,6 +45,14 @@ public class KozossegiPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,8 +65,13 @@ public class KozossegiPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        JOptionPane.showMessageDialog(this, "klikk");
+    }//GEN-LAST:event_formMouseClicked
+
     private void beallitas() {
-        setSize(kep.getWidth(this), kep.getHeight(this));
+        setSize(SZELESSEG, MAGASSAG);
+        
     }
 
 
