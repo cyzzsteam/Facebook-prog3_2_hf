@@ -5,6 +5,8 @@
  */
 package feluletek;
 
+import alaposztalyok.Felhasznalo;
+
 /**
  *
  * @author varga
@@ -43,10 +45,10 @@ public class FelhasznalokPanel extends javax.swing.JPanel {
         lblKijelzo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblKijelzo.setText("Regisztráltak");
 
-        LstFelhasznalok.setModel(new javax.swing.AbstractListModel<String>() {
+        LstFelhasznalok.setModel(new javax.swing.AbstractListModel<Felhasznalo>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(LstFelhasznalok);
 
@@ -84,7 +86,7 @@ public class FelhasznalokPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> LstFelhasznalok;
+    private javax.swing.JList<Felhasznalo> LstFelhasznalok;
     private javax.swing.JButton btnKoruzenet;
     private javax.swing.JButton btnSzemelyesUzenet;
     private javax.swing.JScrollPane jScrollPane1;
