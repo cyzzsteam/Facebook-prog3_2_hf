@@ -47,11 +47,6 @@ public class KozossegiPanel extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(400, 300));
         setMinimumSize(new java.awt.Dimension(400, 300));
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,10 +59,6 @@ public class KozossegiPanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        JOptionPane.showMessageDialog(this, "klikk");
-    }//GEN-LAST:event_formMouseClicked
 
     private void beallitas() {
         setSize(SZELESSEG, MAGASSAG);

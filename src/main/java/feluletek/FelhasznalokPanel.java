@@ -45,11 +45,6 @@ public class FelhasznalokPanel extends javax.swing.JPanel {
         lblKijelzo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblKijelzo.setText("Regisztráltak");
 
-        LstFelhasznalok.setModel(new javax.swing.AbstractListModel<Felhasznalo>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(LstFelhasznalok);
 
         btnKoruzenet.setText("körüzenet");
