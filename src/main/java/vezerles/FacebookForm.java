@@ -12,12 +12,14 @@ package vezerles;
 public class FacebookForm extends javax.swing.JFrame {
     private final int MAGASSAG=490;
     private final int SZELESSEG=750;
+    
     /**
      * Creates new form FacebookForm
      */
     public FacebookForm() {
         initComponents();
         setSize(SZELESSEG, MAGASSAG);
+        new Vezerlo(kozossegiPanel1, felhasznalokPanel2, fejlecPanel2).start();
     }
 
     /**

@@ -8,7 +8,7 @@ package feluletek;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import vezerles.Vezerlo;
 
 /**
  *
@@ -17,6 +17,12 @@ import javax.swing.JOptionPane;
 public class KozossegiPanel extends javax.swing.JPanel {
     private final int SZELESSEG=600;
     private final int MAGASSAG=450;
+    private Vezerlo vezerlo;
+
+    public void setVezerlo(Vezerlo vezerlo) {
+        this.vezerlo = vezerlo;
+    }
+    
     
     //Képet beállítom és átméretezem a panel méretére, hogy kitöltse.
     private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebook.jpg")).getImage().getScaledInstance(SZELESSEG, MAGASSAG, 1);

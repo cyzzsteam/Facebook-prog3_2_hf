@@ -8,6 +8,7 @@ package feluletek;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import vezerles.Vezerlo;
 
 /**
  *
@@ -17,6 +18,11 @@ public class FejlecPanel extends javax.swing.JPanel {
     private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebookfej.jpg")).getImage();
     private final int SZELESSEG=750;
     private final int MAGASSAG=40;
+    private Vezerlo vezerlo;
+
+    public void setVezerlo(Vezerlo vezerlo) {
+        this.vezerlo = vezerlo;
+    }
     /**
      * Creates new form FejlecPanel
      */

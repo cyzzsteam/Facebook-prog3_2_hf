@@ -6,6 +6,7 @@
 package feluletek;
 
 import alaposztalyok.Felhasznalo;
+import vezerles.Vezerlo;
 
 /**
  *
@@ -14,6 +15,13 @@ import alaposztalyok.Felhasznalo;
 public class FelhasznalokPanel extends javax.swing.JPanel {
     private final int SZELESSEG=150;
     private final int MAGASSAG=450;
+    private Vezerlo vezerlo;
+
+    public void setVezerlo(Vezerlo vezerlo) {
+        this.vezerlo = vezerlo;
+    }
+    
+    
     /**
      * Creates new form FelhasznalokPanel
      */
@@ -79,6 +87,7 @@ public class FelhasznalokPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<Felhasznalo> LstFelhasznalok;
