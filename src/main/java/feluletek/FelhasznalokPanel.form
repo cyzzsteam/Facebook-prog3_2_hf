@@ -78,6 +78,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LstFelhasznalokMousePressed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Felhasznalo&gt;"/>
           </AuxValues>
@@ -88,11 +91,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="k&#xf6;r&#xfc;zenet"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKoruzenetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSzemelyesUzenet">
       <Properties>
         <Property name="text" type="java.lang.String" value="szem&#xe9;lyes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSzemelyesUzenetActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

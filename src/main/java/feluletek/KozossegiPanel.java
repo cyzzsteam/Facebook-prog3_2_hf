@@ -5,9 +5,13 @@
  */
 package feluletek;
 
+import alaposztalyok.Felhasznalo;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
+import vezerles.Global;
 import vezerles.Vezerlo;
 
 /**
@@ -15,17 +19,20 @@ import vezerles.Vezerlo;
  * @author varga
  */
 public class KozossegiPanel extends javax.swing.JPanel {
-    private final int SZELESSEG=600;
-    private final int MAGASSAG=450;
+
+    private final int SZELESSEG = 600;
+    private final int MAGASSAG = 450;
     private Vezerlo vezerlo;
+
+    private List<Felhasznalo> felhasznaloLista = new ArrayList<>();
+    private String kepEleres = Global.KOZOSSEGIKEP_ELERES;
 
     public void setVezerlo(Vezerlo vezerlo) {
         this.vezerlo = vezerlo;
     }
-    
-    
+
     //Képet beállítom és átméretezem a panel méretére, hogy kitöltse.
-    private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebook.jpg")).getImage().getScaledInstance(SZELESSEG, MAGASSAG, 1);
+    private Image kep = new ImageIcon(this.getClass().getResource(kepEleres)).getImage().getScaledInstance(SZELESSEG, MAGASSAG, 1);
 
     /**
      * Creates new form KozossegiPanel
@@ -39,7 +46,16 @@ public class KozossegiPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
         g.drawImage(kep, 0, 0, this);
-        
+        vezerlo.uzenetRajzolas(g);
+        if (vezerlo != null) {
+            for (Felhasznalo felhasznalo : felhasznaloLista) {
+                vezerlo.felhasznaloRajzolas(felhasznalo, g);
+                if(felhasznalo.isKijeloltek()){
+                    g.drawImage(felhasznalo.getKijeloltKep(), felhasznalo.getX(), felhasznalo.getY(), this);
+                }
+                
+            }
+        }
     }
 
     /**
@@ -53,6 +69,11 @@ public class KozossegiPanel extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(400, 300));
         setMinimumSize(new java.awt.Dimension(400, 300));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,9 +87,20 @@ public class KozossegiPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        if (vezerlo != null) {
+            vezerlo.pozicioKeres(evt.getX(), evt.getY());
+        }
+        repaint();
+    }//GEN-LAST:event_formMousePressed
+
     private void beallitas() {
         setSize(SZELESSEG, MAGASSAG);
-        
+
+    }
+
+    public void setFelhasznaloLista(List<Felhasznalo> felhasznaloLista) {
+        this.felhasznaloLista = felhasznaloLista;
     }
 
 

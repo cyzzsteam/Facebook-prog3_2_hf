@@ -19,7 +19,7 @@ public class FacebookForm extends javax.swing.JFrame {
     public FacebookForm() {
         initComponents();
         setSize(SZELESSEG, MAGASSAG);
-        new Vezerlo(kozossegiPanel1, felhasznalokPanel2, fejlecPanel2).start();
+        
     }
 
     /**
@@ -85,7 +85,7 @@ public class FacebookForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FacebookForm().setVisible(true);
+                new FacebookForm().inditas();
             }
         });
     }
@@ -95,4 +95,9 @@ public class FacebookForm extends javax.swing.JFrame {
     private feluletek.FelhasznalokPanel felhasznalokPanel2;
     private feluletek.KozossegiPanel kozossegiPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private void inditas() {
+        this.setVisible(true);
+        new Vezerlo(kozossegiPanel1, felhasznalokPanel2, fejlecPanel2).start();
+    }
 }

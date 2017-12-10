@@ -8,6 +8,7 @@ package feluletek;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import vezerles.Global;
 import vezerles.Vezerlo;
 
 /**
@@ -15,7 +16,9 @@ import vezerles.Vezerlo;
  * @author varga
  */
 public class FejlecPanel extends javax.swing.JPanel {
-    private Image kep=new ImageIcon(this.getClass().getResource("/kepek/facebookfej.jpg")).getImage();
+    private String kepEleres=Global.FEJLECKEP_ELERES;
+    
+    private Image kep=new ImageIcon(this.getClass().getResource(kepEleres)).getImage();
     private final int SZELESSEG=750;
     private final int MAGASSAG=40;
     private Vezerlo vezerlo;
@@ -61,6 +64,11 @@ public class FejlecPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(txtKeresett);
 
         btnKeres.setText("Keresés");
+        btnKeres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,6 +87,13 @@ public class FejlecPanel extends javax.swing.JPanel {
             .addComponent(btnKeres, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnKeresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeresActionPerformed
+        if(vezerlo.keres(txtKeresett.getText())){
+        vezerlo.ismerosLista();
+        }
+        
+    }//GEN-LAST:event_btnKeresActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
